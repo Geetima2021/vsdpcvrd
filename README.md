@@ -1,1 +1,1 @@
-# STA-analysis-using-OpenSTA
+# STA analysis using OpenSTA
