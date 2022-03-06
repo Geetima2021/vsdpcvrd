@@ -59,4 +59,6 @@ The snapshot of the setup report as obtained from the OpenSTA tool and its picto
 
 ![worst_path](https://user-images.githubusercontent.com/63381455/155880920-e06a9415-33f6-4038-b8c7-7ef0a7e9960f.JPG)
 
+The snapshot includes tabular form of the above analysis including the values mentioned in the skywater timing library:
 
+![table_timing](https://user-images.githubusercontent.com/63381455/156922406-8bfa0fd6-f85e-4147-b53f-723d28601df3.png)
