@@ -46,6 +46,8 @@ Based on the design specification the given figure is analysed. The first step i
 
 Now inorder to invoke the openSTA tool - the terminal has to be at the path where the necessary files for the design are available. The verilog file ```netlist.v``` is linked to the ```sky130_fd_sc_hd__tt_025C_1v80``` library using ``` link_design <module_name>```. For the initial analysis the clock period is define as mentioned [here](https://github.com/Geetima2021/STA-analysis-using-OpenSTA/tree/main/resources/1.tcl). The following command shows the set up report of the design.
 
+
+
 ```bash
 report_checks -fields {nets capacitance slew input_pins} -digits {4}
 ```
@@ -56,6 +58,28 @@ The snapshot of the setup report as obtained from the OpenSTA tool and its picto
 ![worst_path](https://user-images.githubusercontent.com/63381455/155880920-e06a9415-33f6-4038-b8c7-7ef0a7e9960f.JPG)
 
 The analysis of the above design is done using different even PVT corners. A total of 16 PVT corners is used which includes 2 TT, 8 SS and 6 FF corners as provided by Skywater PDK. 
+
+![ff_1](https://user-images.githubusercontent.com/63381455/158239272-855ca5d7-896f-4b01-aee0-eb3dd14c7e2e.png)
+![ff_2](https://user-images.githubusercontent.com/63381455/158239295-1cfd6e34-9ee8-43e3-a24e-5bac35a567d1.png)
+![ff_3](https://user-images.githubusercontent.com/63381455/158239400-3623104d-d870-4287-8d30-1b2b28e71089.png)
+
+
+
+
+
+
+
+
+
+
+
+
+![ss_1](https://user-images.githubusercontent.com/63381455/158239460-df3f5db9-5453-4955-83cf-10619b01ed3d.png)
+![ss_2](https://user-images.githubusercontent.com/63381455/158239488-8589fd72-4af6-4f50-b142-9d4560003b98.png)
+![ss_3](https://user-images.githubusercontent.com/63381455/158239518-8f125841-18fe-4231-ae96-1329d0643caf.png)
+![ss_4](https://user-images.githubusercontent.com/63381455/158239556-9ef751f0-b0b6-474e-bf11-6a87d3beda94.png)
+
+
 
 
 
