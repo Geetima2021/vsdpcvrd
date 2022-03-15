@@ -74,7 +74,10 @@ The analysis of the above design is done using different even PVT corners. A tot
 
 Based on the openSTA analysis, a graph showing the delay of NAND gate for different PVT corners is included in the snapshot below.
 
-![Cell_delay_NAND](https://user-images.githubusercontent.com/63381455/158379528-8e727356-fe0c-4298-be82-db27098992b9.JPG)
+![Cell_delay_NAND](https://user-images.githubusercontent.com/63381455/158380081-310389ea-b6b0-4d3f-9163-476c93d0e5d7.JPG)
+
+
+!
 
 
 
