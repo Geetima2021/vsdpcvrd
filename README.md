@@ -59,7 +59,9 @@ The snapshot of the setup report as obtained from the OpenSTA tool and its picto
 
 The analysis of the above design is done using different even PVT corners. A total of 16 PVT corners is used which includes 2 TT, 8 SS and 6 FF corners as provided by Skywater PDK. 
 
-![tt](https://user-images.githubusercontent.com/63381455/158331037-4ef974ca-5d8c-4f7f-a82c-a384e7fa114b.png)
+
+![tt_1](https://user-images.githubusercontent.com/63381455/158332570-50ecbde6-b595-418a-8fa5-56c026311dd9.png)
+
 
 
 
