@@ -1,4 +1,4 @@
-# STA analysis using OpenSTA
+# VSDPCVRD - Performance characterization for VSDBabySoC comprising of RISC-V core, PLL and DAC
 
 
 STA timing analysis verifies that the functionality of a design(chip) is intact across various conditions. The analysis consists of three parts timing checks, constraints and libraries. Timing checks includes the setup/hold timing checks – combination of various types of valid timing checks, to ensure the design specifications/constrains are met. A number of STA analysis tools both commercial and open source  are available for analysis of the design. In this repository the STA timing analysis of a simple design as per [VSD course](https://www.vlsisystemdesign.com/vsd-static-timing-analysis-ii/) is  done using the open source OpenSTA too along with the timing library provided by the Google/Skywater 130 nm PDK]. It also uses TCL command interpreter to read the design, specify timing onstraints and print timing report. Here, the STA analysis using even corners – TT, SS and FF is performed. OpenSTA tool being a standalone executable uses the standard design format for its analysis. 
@@ -58,6 +58,11 @@ The snapshot of the setup report as obtained from the OpenSTA tool and its picto
 ![worst_path](https://user-images.githubusercontent.com/63381455/155880920-e06a9415-33f6-4038-b8c7-7ef0a7e9960f.JPG)
 
 The analysis of the above design is done using different even PVT corners. A total of 16 PVT corners is used which includes 2 TT, 8 SS and 6 FF corners as provided by Skywater PDK. 
+
+![tt](https://user-images.githubusercontent.com/63381455/158331037-4ef974ca-5d8c-4f7f-a82c-a384e7fa114b.png)
+
+
+
 
 ![ff_1](https://user-images.githubusercontent.com/63381455/158239272-855ca5d7-896f-4b01-aee0-eb3dd14c7e2e.png)
 ![ff_2](https://user-images.githubusercontent.com/63381455/158239295-1cfd6e34-9ee8-43e3-a24e-5bac35a567d1.png)
