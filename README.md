@@ -71,13 +71,11 @@ The analysis of the above design is done using different even PVT corners. A tot
 ![ss_2](https://user-images.githubusercontent.com/63381455/158239488-8589fd72-4af6-4f50-b142-9d4560003b98.png)
 ![ss_3](https://user-images.githubusercontent.com/63381455/158239518-8f125841-18fe-4231-ae96-1329d0643caf.png)
 ![ss_4](https://user-images.githubusercontent.com/63381455/158239556-9ef751f0-b0b6-474e-bf11-6a87d3beda94.png)
+ 
+Based on the OpenSTA analysis, a graph showing the impact of different PVT corners on cell delay and input slew is shown in the snapshot below. 
 
-Based on the openSTA analysis, a graph showing the delay of NAND gate for different PVT corners is included in the snapshot below.
+![CellD_ISLew](https://user-images.githubusercontent.com/63381455/158589744-cfefe907-0720-4596-b98d-4079140821fe.JPG)
 
-![Cell_delay_NAND](https://user-images.githubusercontent.com/63381455/158380081-310389ea-b6b0-4d3f-9163-476c93d0e5d7.JPG)
-
-
-!
 
 
 
