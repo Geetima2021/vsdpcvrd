@@ -68,16 +68,17 @@ report_checks -path_delay min -fields {nets cap slew input_pins} -digits {4}
 ```
 Detail description of the command available in openSTA can be viwed by typing ```help``` within the sta environment.
 
-The snapshot of the setup and hold report of a PVT corner (TT,1.8,25℃) as obtained from the OpenSTA tool and its pictorial representation is included below. It shows the worst slack report for setup and hold condition.
+The snapshot of the setup and hold report of a PVT corner (TT,1.8V,25℃) as obtained from the OpenSTA tool and its pictorial representation is included below. It shows the worst slack report for setup and hold condition.
 
 ![SH_horizontal](https://user-images.githubusercontent.com/63381455/158808585-51225aa8-2137-4e8e-8a8e-e3b9d8a07544.png)
 
 ![set_hold_worst](https://user-images.githubusercontent.com/63381455/158806716-c6ab740d-dc11-426c-98dd-22e9ed0d42fe.png)
 
-
-Based on the OpenSTA analysis, a graph showing the impact of different PVT corners on cell delay and input slew is shown in the snapshot below. 
+STA analysis of different PVT corners is performed and the report generated for each corner is included [here](https://github.com/Geetima2021/vsdpcvrd/tree/main/resources/images/OpenSTA_setup_hold). Based on the setup report generated a table is created containing all the information of each PVT corner as obatined from the OpenSTA tool and the concern library. The details of the same can be found [here](https://github.com/Geetima2021/vsdpcvrd/tree/main/resources/images). We have use the NAND gate report for our analysis and observe the trend on cell delay and input slew.
 
 ![CellD_ISLew](https://user-images.githubusercontent.com/63381455/158589744-cfefe907-0720-4596-b98d-4079140821fe.JPG)
+
+The variation of the cell delay and input slew with respect to the PVT corner on NAND gate is plotted in the above graph. It shows that the input slew and the cell delay for the NAND gate follows similar trend. Both increases as we move from best case to the worst case scenario whiich should be the trend. The above grpah is plotted and observe from the generated setup report. Similar analysis is done for the hold report too.
 
 
 
