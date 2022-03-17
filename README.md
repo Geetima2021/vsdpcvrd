@@ -121,4 +121,4 @@ Table3: Delay table using sky130 ss corner
 | wp/lp     | 4(wn/ln)    |          76         |         100        |           0.922581          |
 | wp/lp     | 5(wn/ln)    |          64         |         102        |           0.935484          
 
-As observe from the above table it is noticed that the rise delay for (wp/lp) <= 2.5(wn/ln) has a faster fall delay as compared to greater than it. In case of this design the fall delay is faster as compared to the rise delay and the details of the same can be obtained [here](https://github.com/Geetima2021/vsdpcvrd/blob/main/resources/images/inverter.png)
+As observe from the above table it is noticed that the rise delay for (wp/lp) <= 2.5(wn/ln) has a faster fall delay as compared to greater than it. In case of this design the fall delay is faster as compared to the rise delay and the details of the same can be obtained [here](https://github.com/Geetima2021/vsdpcvrd/blob/main/resources/images/inverter.png).
