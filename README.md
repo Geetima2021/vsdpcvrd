@@ -46,42 +46,6 @@ Clock analysis
  
 All the necessary files and libraries is included in the repository.
 
-## Delay table of CMOS inverter
-
-CMOS inverter being the basic building block in designing its delay table for the even corners using skywater PDK is generated below. The details of the same can be obained in [CMOS-Circuit-Design-and-SPICE-Simulation-using-SKY130-Technology](https://github.com/Geetima2021/CMOS-Circuit-Design-and-SPICE-Simulation-using-SKY130-Technology) repository.
-
-Table1: Delay table using sky130 tt corner
-
-| **wp/lp** | **x.wn/ln** | **Rise delay (ps)** | **Fall delay(ps)** | **Switching threshold (V)** |
-|-----------|-------------|---------------------|--------------------|----------------------------
-| wp/lp     | 1(wn/ln)    |         149        |         73       |   0.831765   |  
-| wp/lp     | 2(wn/ln)     |         88        |         75        |   0.889839   |  
-| wp/lp     | 2.5(wn/ln)   |         73        |         75        |  0.895161    |
-| wp/lp     | 3(wn/ln )    |         69         |         76       |   0.895161   |       
-| wp/lp     | 4(wn/ln)     |         59         |         78       |    0.916129  |     
-| wp/lp     | 5(wn/ln)     |         52         |         80        |   0.929032  |      
-
-Table2: Delay table using sky130 ff corner
-
-| **wp/lp** | **x.wn/ln** | **Rise delay (ps)** | **Fall delay(ps)** | **switching threshold (V)** |
-|-----------|-------------|---------------------|--------------------|-----------------------------|
-| wp/lp     | 1(wn/ln)    |         114         |         60         | 0.809677                    |
-| wp/lp     | 2(wn/ln)    |         69          |         62         | 0.877419                    |
-| wp/lp     | 2.5(wn/ln)  |          60         |         62         | 0.887097                    |
-| wp/lp     | 3(wn/ln)    |         54          |         62         | 0.891935                    |
-| wp/lp     | 4(wn/ln)    |          48         |         64         | 0.914516                    |
-| wp/lp     | 5(wn/ln)    |          42         |         65         | 0.935484                    |
-
-Table3: Delay table using sky130 ss corner
-
-| **wp/lp** | **x.wn/ln** | **Rise delay (ps)** | **Fall delay(ps)** | **switching threshold (V)** |
-|-----------|-------------|---------------------|--------------------|-----------------------------|
-| wp/lp     | 1(wn/ln)    |         226         |         93         |             0.85            |
-| wp/lp     | 2(wn/ln)    |         122         |         96         |           0.906452          |
-| wp/lp     | 2.5(wn/ln)  |         103         |         97         |           0.908065          |
-| wp/lp     | 3(wn/ln)    |          95         |         98         |           0.903226          |
-| wp/lp     | 4(wn/ln)    |          76         |         100        |           0.922581          |
-| wp/lp     | 5(wn/ln)    |          64         |         102        |           0.935484          |
 
 
 ## Analysis of a basic design
@@ -120,8 +84,41 @@ STA analysis of different PVT corners is performed and the report generated for 
 The variation of the cell delay and input slew with respect to the PVT corner on NAND gate is plotted in the above graph. It shows that the input slew and the cell delay for the NAND gate follows similar trend. Both increases as we move from best case to the worst case scenario whiich should be the trend. The above grpah is plotted and observe from the generated setup report. Similar analysis is done for the hold report too.
 
 
+## Delay table of CMOS inverter
 
+CMOS inverter being the basic building block in designing its delay table for the even corners using skywater PDK is generated below. The details of the same can be obained in [CMOS-Circuit-Design-and-SPICE-Simulation-using-SKY130-Technology](https://github.com/Geetima2021/CMOS-Circuit-Design-and-SPICE-Simulation-using-SKY130-Technology) repository.
 
+Table1: Delay table using sky130 tt corner
 
+| **wp/lp** | **x.wn/ln** | **Rise delay (ps)** | **Fall delay(ps)** | **Switching threshold (V)** |
+|-----------|-------------|---------------------|--------------------|----------------------------
+| wp/lp     | 1(wn/ln)    |         149        |         73       |   0.831765   |  
+| wp/lp     | 2(wn/ln)     |         88        |         75        |   0.889839   |  
+| wp/lp     | 2.5(wn/ln)   |         73        |         75        |  0.895161    |
+| wp/lp     | 3(wn/ln )    |         69         |         76       |   0.895161   |       
+| wp/lp     | 4(wn/ln)     |         59         |         78       |    0.916129  |     
+| wp/lp     | 5(wn/ln)     |         52         |         80        |   0.929032  |      
 
+Table2: Delay table using sky130 ff corner
 
+| **wp/lp** | **x.wn/ln** | **Rise delay (ps)** | **Fall delay(ps)** | **switching threshold (V)** |
+|-----------|-------------|---------------------|--------------------|-----------------------------|
+| wp/lp     | 1(wn/ln)    |         114         |         60         | 0.809677                    |
+| wp/lp     | 2(wn/ln)    |         69          |         62         | 0.877419                    |
+| wp/lp     | 2.5(wn/ln)  |          60         |         62         | 0.887097                    |
+| wp/lp     | 3(wn/ln)    |         54          |         62         | 0.891935                    |
+| wp/lp     | 4(wn/ln)    |          48         |         64         | 0.914516                    |
+| wp/lp     | 5(wn/ln)    |          42         |         65         | 0.935484                    |
+
+Table3: Delay table using sky130 ss corner
+
+| **wp/lp** | **x.wn/ln** | **Rise delay (ps)** | **Fall delay(ps)** | **switching threshold (V)** |
+|-----------|-------------|---------------------|--------------------|-----------------------------|
+| wp/lp     | 1(wn/ln)    |         226         |         93         |             0.85            |
+| wp/lp     | 2(wn/ln)    |         122         |         96         |           0.906452          |
+| wp/lp     | 2.5(wn/ln)  |         103         |         97         |           0.908065          |
+| wp/lp     | 3(wn/ln)    |          95         |         98         |           0.903226          |
+| wp/lp     | 4(wn/ln)    |          76         |         100        |           0.922581          |
+| wp/lp     | 5(wn/ln)    |          64         |         102        |           0.935484          
+
+As observe from the above table it is noticed that the rise delay for (wp/lp) <= 2.5(wn/ln) has a faster fall delay as compared to greater than it. In case of this design the fall delay is faster as compared to the rise delay and the details of the same can be obtained [here](https://github.com/Geetima2021/vsdpcvrd/blob/main/resources/images/inverter.png)
