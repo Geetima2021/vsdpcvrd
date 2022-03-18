@@ -117,7 +117,7 @@ The snapshot of the setup and hold report of a PVT corner (TT,1.8V,25℃) as obt
 
 STA analysis of different PVT corners is performed and the report generated for each corner is included [here](https://github.com/Geetima2021/vsdpcvrd/tree/main/resources/images/OpenSTA_setup_hold). Based on the setup report generated a table is created containing all the information of each PVT corner as obatined from the OpenSTA tool and the concern library. The details of the same can be found [here](https://github.com/Geetima2021/vsdpcvrd/tree/main/resources/images). We have use the NAND gate report for our analysis and observe the trend on cell delay and input slew.
 
-![CellD_ISLew](https://user-images.githubusercontent.com/63381455/158589744-cfefe907-0720-4596-b98d-4079140821fe.JPG)
+![CD_ip_setup_hold](https://user-images.githubusercontent.com/63381455/159007452-b8179f9f-2fac-4f9e-846a-1a0000798129.JPG)
 
 The variation of the cell delay and input slew with respect to the PVT corner on NAND gate is plotted in the above graph. It shows that the input slew and the cell delay for the NAND gate follows similar trend. Both increases as we move from best case to the worst case scenario whiich should be the trend. The above grpah is plotted and observe from the generated setup report. Similar analysis is done for the hold report too.
 
