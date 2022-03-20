@@ -95,7 +95,7 @@ The analysis of the above design is done using a 15 different PVT corners and th
 2. Type``sta <tcl>`` for report generation
 3. The verilog file ```netlist.v``` is linked to the ```sky130_fd_sc_hd__tt_025C_1v80``` library using ``` link_design <module_name>```. For the initial analysis the clock period is define as mentioned [here](https://github.com/Geetima2021/vsdpcvrd/blob/main/resources/files/my_run.tcl). 
 
-The following command shows the setup report of the design
+The following command shows the setup and hold report of the design
 
 ```bash
 report_checks <switch1> <switch2> switch3>
