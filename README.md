@@ -122,7 +122,7 @@ The variation of the cell delay and input slew with respect to the PVT corner on
 
 ## STA analysis of RISCV core
 
-The verilog file for STA analysis of RISCV core is taken from this [repository](https://github.com/shivanishah269/risc-v-core/tree/master/FPGA_Implementation/verilog). 
+The verilog file for STA analysis of RISCV core is taken from this [repository](https://github.com/shivanishah269/risc-v-core/tree/master/FPGA_Implementation/verilog). Initially the synthesized verilog file is created using yosys. 
 
 
 
