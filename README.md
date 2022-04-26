@@ -145,6 +145,8 @@ Static timing analysis – Post sythesis pre CTS
 |     14     | 19483_/ _19715               | 19561_ / _19560             | ssn401v35       | -26.51           | 1.56            |
 |     15     | 19483_ / _19843              | 19561_ / _19560             | ssn401v28       | -44.99           | 2.16            |
 
+![post_syn](https://user-images.githubusercontent.com/63381455/165319270-7348edac-1c4c-42cc-8baf-3056f630b5e0.JPG)
+
 
 Static timing analysis –Post synthesis post placement pre CTS
 
@@ -166,6 +168,7 @@ Static timing analysis –Post synthesis post placement pre CTS
 |     14     | 19483_/ _19715               | 19561_ / _19560             | ssn401v35       | -24.48           | 1.56            |
 |     15     | 19483_/ _19851               | 19561_ / _19560             | ssn401v28       | -41.14           | 2.16            |
 
+![post_place](https://user-images.githubusercontent.com/63381455/165319332-da659e81-8d86-42db-acd3-9d97fdad9934.JPG)
 
 Static timing analysis - Post CTS
 
@@ -186,6 +189,8 @@ Static timing analysis - Post CTS
 |     13     | 19483_ / _19843              | 19561_ / _19560             | ssn401v40       | -17.25           | 1.42            |
 |     14     | 19483_ / _19843              | 19561_ / _19560             | ssn401v35       | -24.45           | 1.71            |
 |     15     | 19483_ / _19843              | 19561_ / _19560             | ssn401v28       | -40.96           | 2.3             |
+
+![post_cts](https://user-images.githubusercontent.com/63381455/165319408-17c11c10-0ba2-42e2-9572-f508b7472c78.JPG)
 
 Static timing analysis –Post CTS post layout
 
@@ -209,6 +214,7 @@ Static timing analysis –Post CTS post layout
 |     15     | 19483_/_19787                | 19477_/_20767               | ssn401v28       | -48.39           | 0.2             |
 
 
+![post_layout](https://user-images.githubusercontent.com/63381455/165319673-6384a51e-c721-4fca-9bba-24ca3f20b22b.JPG)
 
 
 
