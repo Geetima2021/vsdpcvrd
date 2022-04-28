@@ -146,7 +146,7 @@ Static timing analysis – Post sythesis pre CTS
 | 15         | \_19483\_ / \_19843\_      | \_19561\_ / \_19560\_     | ssn401v28       | -44.99           | 2.16           |
 
 
-Static timing analysis –Post synthesis post placement pre CTS
+<!---Static timing analysis –Post synthesis post placement pre CTS
 
 | **Sl No.** | **Start/end point(setup)** | **Start/end point(hold)** | **PVT corners** | **Setup slack ** | **Hold slack** |
 |------------|----------------------------|---------------------------|-----------------|------------------|----------------|
@@ -164,7 +164,7 @@ Static timing analysis –Post synthesis post placement pre CTS
 | 12         |  \_19483\_/ \_19715\_      | \_19561\_ / \_19560\_     | ssn401v44       | -14.56           | 1.14           |
 | 13         | \_19483\_ / \_19843\_      | \_19561\_ / \_19560\_     | ssn401v40       | -18.84           | 1.3            |
 | 14         |  \_19483\_/ \_19715\_      | \_19561\_ / \_19560\_     | ssn401v35       | -26.51           | 1.56           |
-| 15         | \_19483\_ / \_19843\_      | \_19561\_ / \_19560\_     | ssn401v28       | -44.99           | 2.16           |
+| 15         | \_19483\_ / \_19843\_      | \_19561\_ / \_19560\_     | ssn401v28       | -44.99           | 2.16           |--->
 
 
 Static timing analysis - Post CTS
