@@ -167,7 +167,7 @@ Static timing analysis - Post CTS
 | 14         | \_19483\_/\_20003\_        | \_19446\_/\_19445\_       | ssn401v35       | -26.67           | 1.31           |
 | 15         | \_19483\_/\_20163\_        | \_19683\_/\_19613\_       | ssn401v28       | -45.12           | 1.77           |
 
-![post_lay](https://user-images.githubusercontent.com/63381455/166108535-c7a3a1de-d971-40eb-9b75-eb0a20ff14d3.JPG)
+![post_cts](https://user-images.githubusercontent.com/63381455/166108663-8f6f496d-3f37-41f1-a3a9-4202ec86c9b8.JPG)
 
 Static timing analysis –Post CTS post layout
 
