@@ -118,12 +118,12 @@ STA analysis of different PVT corners is performed and the report generated for 
 
 ![setup_hold_cd_ip](https://user-images.githubusercontent.com/63381455/165096309-20767a0f-5131-483d-bfae-4768f2ff9c6e.JPG)
 
-
 The variation of the cell delay and input slew with respect to the PVT corner on NAND gate is plotted in the above graph. It shows that the input slew and the cell delay for the NAND gate follows similar trend. Both increases as we move from best case to the worst case scenario which should be the trend. The analysis holds true both for worst setup and hold NAND report as observe in the above graph.
 
 ## STA analysis of RISCV core
 
-The verilog file for STA analysis of RISCV core is taken from this [repository](https://github.com/shivanishah269/risc-v-core/tree/master/FPGA_Implementation/verilog). Initially the synthesized verilog file is created using yosys. 
+The verilog file for STA analysis of RISCV core is taken from this [repository](https://github.com/shivanishah269/risc-v-core/tree/master/FPGA_Implementation/verilog). Openlane is used for further analysis and the slack (setup and hold) is observed at different stages - post synthesis, post CTS and post layout. The analysis is based on the tt corner netlist across all the timing libraries. Based on the observe results a report is generated as shown in the tables and graph below. As seen from the results it is observe that the setup slacks are worse across the ss, -40c corners and the hold slack has the worse values across the ff corner. The tt corner 25C gives +3.68ns setup slack for clock of 10ns (272MHz) after clock tree propagated -post layout. It is observe that  the worse and the best corner is ssn40C1v28 and ff100C1v95 corner which is the main aim of the study.
+
 
 Static timing analysis – Post sythesis pre CTS 
 
