@@ -202,15 +202,14 @@ There are terms associated with the increase and reduce derates.
 
 In most of the industrial designs the derating in the clock network is preferable.
 
-
+Considering the clock network, the figure below shows the clock network for the setup and hold analysis (post layout) with the common clock section round off. A more detailed pictorial view of the clock networks launch and capture clock path is also included
 
 ![ttmax_final](https://user-images.githubusercontent.com/63381455/166917165-63a77f8e-7731-422d-9447-4a5c74e62d28.PNG)
-
+Fig: Setup clock network showing the common clock section
 ![ttmin_final](https://user-images.githubusercontent.com/63381455/166933075-4a01fc09-9891-4efe-be1a-f63f27950ef2.PNG)
-
+Fig: Hold clock network showing the common clock section
 ![Htree](https://user-images.githubusercontent.com/63381455/166916972-83281f36-0be1-495e-8820-1fdc1bb8d3aa.PNG)
-
-
+Fig:Clock tree synthesis (Htree) post layout of tt025C1v28
 
 
 
