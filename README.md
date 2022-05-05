@@ -193,7 +193,7 @@ Static timing analysis –Post CTS post layout
 
 #### On-chip variation based static timing analysis
 
-On-chip variation (OCV) is an un-avoidable issue which occurs during the fabrication process. On chip variation results in OCV derates %tage [best and worst range] which has to be accounted during the static timing analysis. It gives a more realistic and conservative analysis. Four possible combinations is possible for data required time (DRT) and data arrival time (DAT) calculation in the clock network where the delays are either increase or reduce with certain OCV derates %tage [increase/reduce DAT: increase/reduce DRT: increase/reduce both DAT/DRT: increase DAT/DRT reduce DAT/DRT].
+On-chip variation (OCV) is an un-avoidable issue which occurs during the fabrication process. On chip variation results in OCV derates %tage [best and worse range] which has to be taken into account during the static timing analysis. It gives a more realistic and conservative analysis. Four possible combinations is possible for data required time (DRT) and data arrival time (DAT) calculation in the clock network where the delays are either increase or reduce with certain OCV derates %tage [increase DAT/DRT: increase DAT, reduce DRT: reduce DAT, increase DRT:reduce DAT/DRT].
 
 There are terms associated with the increase and reduce derates. 
 
@@ -201,6 +201,8 @@ There are terms associated with the increase and reduce derates.
 - When the DAT/DRT in the clock path (delays) is increased by the OCV derate %tage it is called as clock push out 
 
 In most of the industrial designs the derating in the clock network is preferable.
+
+
 
 ![ttmax_final](https://user-images.githubusercontent.com/63381455/166917165-63a77f8e-7731-422d-9447-4a5c74e62d28.PNG)
 
