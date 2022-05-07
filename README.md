@@ -202,7 +202,7 @@ There are terms associated with the increase and reduce derates.
 
 In most of the industrial designs the derating in the clock network is preferable.
 
-Considering the clock network, the figure below shows the commom clock section for the ocv setup and hold analysis (post layout). D
+Considering the clock network, the figure below shows the commom clock section for the ocv setup and hold analysis (post layout). In case of ocv setup timing analysis the max delay (ff) corner is use in the clock path of launch flop and min delay (ss) is use in the clock path of capture flop and vice versa in case of hold timing analysis. From the common clock section as shown in figure below and it is observe that the delay value of the of the cell is different which results in pessimism as no two cells can have different delay at the same time instance. This pessimism is termed as additional pessismism or clock reconvergence pessimism or clock path pessimism and removal of the pessimism is essential. For removal of the pessimism we can either add/remove the extra pessimism from DAT or DRT part and then compute the required slack. This method of pessimism removal is known as clock reconvergence pessimism removal (CRPR) or clock path pessimism removal (CPPR).
 
 ![cppr](https://user-images.githubusercontent.com/63381455/167178818-268481a7-3482-4997-a7dd-f8ebc3346936.PNG)
 
