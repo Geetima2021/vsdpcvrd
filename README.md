@@ -121,7 +121,7 @@ The variation of the cell delay and input slew with respect to the PVT corner on
 
 ## STA analysis of RISCV core
 
-The verilog file for STA analysis of RISCV core is taken from this [repository](https://github.com/shivanishah269/risc-v-core/tree/master/FPGA_Implementation/verilog). Openlane is used for further analysis and the slack (setup and hold) is observed at different stages - post synthesis, post CTS and post layout. The analysis is based on the tt corner netlist across all the timing libraries. Based on the observe results a report is generated as shown in the tables and graph below. As seen from the results it is observe that the setup slacks are worse across the ss, -40c corners and the hold slack has the worse values across the ff corner. The tt corner 25C gives +3.68ns setup slack for clock of 10ns (158MHz) after clock tree propagated -post layout. It is observe that  the worse and the best corner is ssn40C1v28 and ff100C1v95 corner which is the main aim of the study.
+The verilog file for STA analysis of RISCV core is taken from this [repository](https://github.com/shivanishah269/risc-v-core/tree/master/FPGA_Implementation/verilog). OpenLANE is used for further analysis and the slack (setup and hold) is observed at different stages - post synthesis, post CTS and post layout. The analysis is based on the tt corner netlist across all the timing libraries. Based on the observe results a report is generated as shown in the tables and graph below. As seen from the results it is observe that the setup slacks are worse across the ss, -40c corners and the hold slack has the worse values across the ff corner. The tt corner 25C gives +3.68ns setup slack for clock of 10ns (158MHz) after clock tree propagated -post layout. It is observe that  the worse and the best corner is ssn40C1v28 and ff100C1v95 corner which is the main aim of the study.
 
 
 Static timing analysis – Post sythesis pre CTS 
@@ -202,26 +202,21 @@ There are terms associated with the increase and reduce derates.
 
 In most of the industrial designs the derating in the clock network is preferable.
 
-Considering the clock network, the figure below shows the commom clock section for the ocv setup and hold analysis (post layout). In case of ocv setup timing analysis the max delay (ff) corner is use in the clock path of launch flop and min delay (ss) is use in the clock path of capture flop and vice versa in case of hold timing analysis. From the common clock section as shown in figure below and it is observe that the delay value of the of the cell is different which results in pessimism as no two cells can have different delay at the same time instance. This pessimism is termed as additional pessismism or clock reconvergence pessimism or clock path pessimism and removal of the pessimism is essential. For removal of the pessimism we can either add/remove the extra pessimism from DAT or DRT part and then compute the required slack. This method of pessimism removal is known as clock reconvergence pessimism removal (CRPR) or clock path pessimism removal (CPPR).
+Considering the clock network, the figure below shows the commom clock section for the ocv setup and hold analysis (post layout). In case of ocv setup timing analysis the max delay is use in the data path and min delay is use in the clock path and vice versa in case of hold timing analysis. From the common clock section as shown in figure below and it is observe that the delay value of the of the cell is different which results in pessimism as no two cells can have different delay at the same time instance. This pessimism is termed as additional pessismism or clock reconvergence pessimism or clock path pessimism and removal of the pessimism is essential. For removal of the pessimism we can either add/remove the extra pessimism from DAT or DRT part and then compute the required slack. This method of pessimism removal is known as clock reconvergence pessimism removal or clock path pessimism removal (CPPR).
 
 ![cppr](https://user-images.githubusercontent.com/63381455/167178818-268481a7-3482-4997-a7dd-f8ebc3346936.PNG)
 
-The snapshot below is a part of the timing analysis obtained from the opensta tool showing the crp value. The slack (setup/hold) value obtained has not removed the CRP. After removal of pessimism the new slack values is 7.5654 ns (setup) and 2.0029 ns (hold slack).
+The snapshot below shows portion of the post layout timing analysis using ff100C1v95 and ss100C1v60 obtained from OpenLANE (OpenSTA) tool. The detailed timing reports are included [here].
 
-![ocv](https://user-images.githubusercontent.com/63381455/167253795-a94e629f-3b37-4a58-a95d-28e87a008450.png)
+![ocv](https://user-images.githubusercontent.com/63381455/167260863-cf3a3c58-616a-436d-a56a-38866a5b3065.png)
 
+In OpenSTA timing there are few variables use for pessimism removal
 
-<!---![ttmax_final](https://user-images.githubusercontent.com/63381455/166917165-63a77f8e-7731-422d-9447-4a5c74e62d28.PNG)
+- sta_crpr_enabled - it has to be enabled for activation of clock reconvergence pessimism removal and with either `0/1` value, `1` is the default value.
 
-Fig: Setup clock network showing the common clock section
+- sta_crpr_mode - it has two values ```same_pin``` and ```same_transition```. The default value use by OpenSTA is ```same_pin``` where pessimism is removed irrespective of the path rise/fall transition value and ```same_transition``` pessimism is only removed if the path rise/fall transitions are the same.
 
-![ttmin_final](https://user-images.githubusercontent.com/63381455/166933075-4a01fc09-9891-4efe-be1a-f63f27950ef2.PNG)
-
-Fig: Hold clock network showing the common clock section
-
-![Htree](https://user-images.githubusercontent.com/63381455/166916972-83281f36-0be1-495e-8820-1fdc1bb8d3aa.PNG)
-
-Fig:Clock tree synthesis (Htree) post layout of tt025C1v28--->
+- 
 
 
 
