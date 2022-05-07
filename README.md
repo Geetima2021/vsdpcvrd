@@ -206,6 +206,11 @@ Considering the clock network, the figure below shows the commom clock section f
 
 ![cppr](https://user-images.githubusercontent.com/63381455/167178818-268481a7-3482-4997-a7dd-f8ebc3346936.PNG)
 
+The snapshot below is a part of of the timing analysis obtained from the opensta tool showing the crp value. The slack (setup/hold) value obtained has not removed the CRP. After removal of pessimism the new slack values is 7.5654 ns (setup) and 2.0029 ns (hold slack).
+
+![ocv](https://user-images.githubusercontent.com/63381455/167253795-a94e629f-3b37-4a58-a95d-28e87a008450.png)
+
+
 <!---![ttmax_final](https://user-images.githubusercontent.com/63381455/166917165-63a77f8e-7731-422d-9447-4a5c74e62d28.PNG)
 
 Fig: Setup clock network showing the common clock section
