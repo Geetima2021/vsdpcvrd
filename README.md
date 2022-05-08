@@ -216,7 +216,7 @@ In OpenSTA timing there are few variables use for pessimism removal
 
 - sta_crpr_mode - it has two values ```same_pin``` and ```same_transition```. The default value use by OpenSTA is ```same_pin``` where pessimism is removed irrespective of the path rise/fall transition value and ```same_transition``` pessimism is only removed if the path rise/fall transitions are the same.
 
-- crpr_threshold - 
+<!--- crpr_threshold ---> 
 
 ## Conclusion
 
