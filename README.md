@@ -231,7 +231,7 @@ In OpenSTA timing there are few variables use for pessimism removal
 
 - Fixing timing violations 
 - ECO
-- Performance characterization of VSDbabySOC and fixing timing violation if any and final tapeout
+- Performance characterization of VSDbabySOC 
 
 ## Acknowledgement
 
