@@ -240,7 +240,7 @@ In OpenSTA timing there are few variables use for pessimism removal
 - [Tim Edwards](https://github.com/RTimothyEdwards), Senior Vice President of Analog and Design at Efabless corporation
 - [Steve Hoover](https://github.com/stevehoover), Founder, Redwood EDA
 - [Shivani Shah](https://github.com/shivanishah269),Teaching Assistant, VSD Corp. Pvt. Ltd.
-- [Anagha Ghosh](https://www.linkedin.com/in/anagha-ghosh-vlsisystemdesign-com-a4394936), Proprietor at VLSI system design
+- [Anagha Ghosh](https://www.linkedin.com/in/anagha-ghosh-vlsisystemdesign-com-a4394936), Educationalist, Entrepreneur, Proprietor at VLSI system design
 
 
 
