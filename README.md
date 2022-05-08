@@ -202,11 +202,11 @@ There are terms associated with the increase and reduce derates.
 
 In most of the industrial designs the derating in the clock network is preferable.
 
-Considering the clock network, the figure below shows the commom clock section for the ocv setup and hold analysis (post layout). In case of ocv setup timing analysis the max delay is use in the data path and min delay is use in the clock path and vice versa in case of hold timing analysis. From the common clock section as shown in figure below and it is observe that the delay value of the of the cell is different which results in pessimism as no two cells can have different delay at the same time instance. This pessimism is termed as additional pessismism or clock reconvergence pessimism or clock path pessimism and removal of the pessimism is essential. For removal of the pessimism we can either add/remove the extra pessimism from DAT or DRT part and then compute the required slack. This method of pessimism removal is known as clock reconvergence pessimism removal or clock path pessimism removal (CPPR).
+Considering the clock network, the figure below shows the commom clock section for the ocv setup and hold analysis (post layout). In case of ocv setup timing analysis the max delay is use in the data path and min delay is use in the clock path and vice versa in case of hold timing analysis. From the common clock section as shown in figure below and it is observe that the delay value of the of the cell is different which results in pessimism as no two cells can have different delay at the same time instance. This pessimism is termed as additional pessismism or clock reconvergence pessimism or clock path pessimism and removal of the pessimism is essential. For removal of the pessimism we can either add/remove the extra pessimism from DAT or DRT part and then compute the required slack. This method of pessimism removal is known as additional pessismism removal orclock reconvergence pessimism removal or clock path pessimism removal (CPPR).
 
 ![cppr](https://user-images.githubusercontent.com/63381455/167178818-268481a7-3482-4997-a7dd-f8ebc3346936.PNG)
 
-The snapshot below shows portion of the post layout timing analysis using ff100C1v95 and ss100C1v60 obtained from OpenLANE (OpenSTA) tool. The detailed timing reports are included [here].
+The snapshot below shows portion of the post layout timing analysis using ff100C1v95 and ss100C1v60 obtained from OpenSTA tool. The detailed timing reports are included [here](https://github.com/Geetima2021/vsdpcvrd/tree/main/resources/timing_reports).
 
 ![ocv](https://user-images.githubusercontent.com/63381455/167260863-cf3a3c58-616a-436d-a56a-38866a5b3065.png)
 
@@ -216,9 +216,31 @@ In OpenSTA timing there are few variables use for pessimism removal
 
 - sta_crpr_mode - it has two values ```same_pin``` and ```same_transition```. The default value use by OpenSTA is ```same_pin``` where pessimism is removed irrespective of the path rise/fall transition value and ```same_transition``` pessimism is only removed if the path rise/fall transitions are the same.
 
-- 
+- crpr_threshold - 
 
+## Conclusion
 
+- We have prepared a delay table of an inverter for ss, ff and tt corner using sky130 technology and define the correct model file for driving a 10fF capacitor. 
+- STA Analysis of a simple design using Yosys synthesis and openSTA tool across different PVT corners and study of the cell delay nad input slew of NAND gate obtained from setup and hold slack showed the trend of the PVT corners
+- rtl2gds flow of a RISCV core using openlane  and skywater130 tt corner followed by  STA analysis of the core in different stages of the flow using the 15 PVT corners and based on the setup and hold slack the worst and the best corner is define and verified as the same obtained by simple design
+- For our STA analysis we had use same min, max library and based on the post layout result a slack of +3.68ns(154MHz) is obatined at tt025C1v80 corner for a clock of 10ns. Worse setup slack across ssn401v28 corner is -47.93ns and the best corner is ff100C1v95 with a setup slack of 6.29ns and hold slack is worse across the ff corner and best at ss corner with tt corner hold slack is 0.17ns
+- As far as industrial standards consideration of ocv in the STA analysis is essential and hence to account for the same max and min delay calculation has to be of two differnt process corner viz ff and ss 
+- Based on the ff100C1v95 and ss100C1v60 for STA analysis we note the slack both hold and setup is positive after consideration of OCV in the timing report
+
+## Future work
+
+- STA analysis for different combination of PVT corner
+- Fixing timing violations 
+- ECO
+- Performance characterization of VSDbabySOC and fixing timing violation if any and final tapeout
+
+## Acknowledgement
+
+- [Kunal Ghosh](https://github.com/kunalg123), Co-founder, VSD Corp. Pvt. Ltd.
+- [Tim Edwards](https://github.com/RTimothyEdwards), Senior Vice President of Analog and Design at Efabless corporation
+- [Steve Hoover](https://github.com/stevehoover), Founder, Redwood EDA
+- [Shivani Shah](https://github.com/shivanishah269),Teaching Assistant, VSD Corp. Pvt. Ltd.
+- [Anagha Ghosh](https://www.linkedin.com/in/anagha-ghosh-vlsisystemdesign-com-a4394936)Proprietor at VLSI system design.
 
 
 
