@@ -220,12 +220,12 @@ In OpenSTA timing there are few variables use for pessimism removal
 
 ## Conclusion
 
-- We have prepared a delay table of an inverter for ss, ff and tt corner using sky130 technology and define the correct model file for driving a 10fF capacitor. 
-- STA Analysis of a simple design using Yosys synthesis and openSTA tool across different PVT corners and study of the cell delay nad input slew of NAND gate obtained from setup and hold slack showed the trend of the PVT corners
-- rtl2gds flow of a RISCV core using openlane  and skywater130 tt corner followed by  STA analysis of the core in different stages of the flow using the 15 PVT corners and based on the setup and hold slack the worst and the best corner is define and verified as the same obtained by simple design
-- For our STA analysis we had use same min, max library and based on the post layout result a slack of +3.68ns(154MHz) is obatined at tt025C1v80 corner for a clock of 10ns. Worse setup slack across ssn401v28 corner is -47.93ns and the best corner is ff100C1v95 with a setup slack of 6.29ns and hold slack is worse across the ff corner and best at ss corner with tt corner hold slack is 0.17ns
-- As far as industrial standards consideration of ocv in the STA analysis is essential and hence to account for the same max and min delay calculation has to be of two differnt process corner viz ff and ss 
-- Based on the ff100C1v95 and ss100C1v60 for STA analysis we note the slack both hold and setup is positive after consideration of OCV in the timing report
+- We have prepared a delay table of an inverter for ss, ff and tt corner using sky130 technology and define the correct model file for a 10fF capacitor. 
+- STA Analysis of a simple design using Yosys synthesis and openSTA tool across different PVT corners. Analysis of the cell delay and input slew of NAND gate, obtained from setup and hold slack showed the trend of the PVT corners
+- rtl2gds flow of a RISCV core using openlane and skywater130 tt corner followed by STA analysis of the core in different stages of the flow using the 15 PVT corners and based on the setup and hold slack the worst and the best corner is defined and verified as the same obtained from the previous design
+- For our STA analysis we had use same min, max library and based on the post layout result a slack of +3.68ns(154MHz) is obatined at tt025C1v80 corner for a clock of 10ns. Worse setup slack across ssn401v28 corner is -47.93ns and the best corner is ff100C1v95 with a setup slack of 6.29ns and hold slack is worse across the ff corner and best at ss corner with the tt corner hold slack is 0.17ns
+- As far as industrial standards is concern, consideration of ocv in the STA analysis is essential and hence to account for the same max and min delay is based on different process corner viz ff and ss in our case
+- Based on the ff100C1v95 and ss100C1v60 for STA analysis we note the slack(hold and setup) is positive after consideration of OCV in the timing report
 
 ## Future work
 
@@ -240,7 +240,7 @@ In OpenSTA timing there are few variables use for pessimism removal
 - [Tim Edwards](https://github.com/RTimothyEdwards), Senior Vice President of Analog and Design at Efabless corporation
 - [Steve Hoover](https://github.com/stevehoover), Founder, Redwood EDA
 - [Shivani Shah](https://github.com/shivanishah269),Teaching Assistant, VSD Corp. Pvt. Ltd.
-- [Anagha Ghosh](https://www.linkedin.com/in/anagha-ghosh-vlsisystemdesign-com-a4394936), Proprietor at VLSI system design.
+- [Anagha Ghosh](https://www.linkedin.com/in/anagha-ghosh-vlsisystemdesign-com-a4394936), Proprietor, VSD Corp. Pvt. Ltd.
 
 
 
