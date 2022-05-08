@@ -229,7 +229,6 @@ In OpenSTA timing there are few variables use for pessimism removal
 
 ## Future work
 
-- STA analysis for different combination of PVT corner
 - Fixing timing violations 
 - ECO
 - Performance characterization of VSDbabySOC and fixing timing violation if any and final tapeout
