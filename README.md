@@ -1,8 +1,10 @@
 # Performance characterization for VSDBabySoC comprising of RISC-V core, PLL and DAC
 
-STA timing analysis verifies that the functionality of a design(chip) is intact across various conditions. The analysis consists of three parts timing checks, constraints and libraries. Timing checks includes the setup/hold timing checks – combination of various types of valid timing checks, to ensure the design specifications/constrains are met. A number of STA analysis tools both commercial and open source  are available for analysis of the design. In this repository VSDBabySoC comprising of RISC-V core, PLL and DAC is analysed across different even PVT corners. Initially a design as per [VSD course](https://www.vlsisystemdesign.com/vsd-static-timing-analysis-ii/) is  done using the open source OpenSTA too along with the timing library provided by the Google/Skywater 130 nm PDK]. It also uses TCL command interpreter to read the design, specify timing onstraints and print timing report. Here, the STA analysis using even corners – TT, SS and FF is performed. OpenSTA tool being a standalone executable uses the standard design format for its analysis. 
+STA timing analysis verifies that the functionality of a design(chip) is intact across various conditions. The analysis consists of three parts timing checks, constraints and libraries. Timing checks includes the setup/hold timing checks – combination of various types of valid timing checks, to ensure the design specifications/constrains are met and libraries which defines the delay model. A number of STA analysis tools both commercial and open source are available for analysis of the design. The main aim here is the performance characterization of an SOC named VSDBaby SOC comprising of RISC-V core, PLL and DAC across different even PVT corners available in The main aim here is the performance characterization of VSDBabySoc using skywater ss and ff for 1.8V and 25C. Initially the STA of a design from [VSD STA course](https://www.vlsisystemdesign.com/vsd-static-timing-analysis-ii/) is studied across different PVT corners available in skywater130 pdk. Following that the STA  of RISC-V core is done and slack values (setup and hold) is observe at each stages of openLANE viz post synthesis, post cts and post layout for the different PVT corners available in sky130 PDK. Based on the findings from the observation of the previous design and the RISC-V core the best and worse corner in skywater130 is ssn40C1v28 and ff100C1v95.
 
 ## Some important terms
+
+Timing path: The path between the start and end point. In case of STA, the start point is the flip flop clk pin/input port and the end point is the flip flop D pin/output port.
 
 Arrival time: The time taken by a signal to reach the end point.
 
@@ -14,7 +16,6 @@ Setup slack: It is the differnce between the data required time and data arrival
 
 ![hold_setup_slack](https://user-images.githubusercontent.com/63381455/158803543-dcfd8986-a5e2-4440-9fd8-57cb2fc95a4a.png)
 
-
 Types of hold/setup analysis
 
  - reg2reg
@@ -25,6 +26,8 @@ Types of hold/setup analysis
  - recovery/removal
  - data2data
  - latch (time borrow/time given)
+ ![setup_hold](https://user-images.githubusercontent.com/63381455/167811344-83b0a620-d0b3-404c-9940-61f985c8270c.PNG)
+
 
 Slew transistion analysis
  - Data(max/min)
@@ -38,17 +41,21 @@ Clock analysis
  - Skew
  - Pulse width
 
+![others](https://user-images.githubusercontent.com/63381455/167811402-ee8d9c68-8184-4a90-8a0e-dfee07cf9cf3.PNG)
+
+
 ## Tools required
 
 - Linux operating system
-- OpenSTA : a stand alone executable for sta analysis. [This](https://github.com/The-OpenROAD-Project/OpenSTA) repository contains the information on OpenSTA tool along with its installation process
-- ngspice: An open source spice simulator for electronic circuits. For installation in Windows and Linux platform visit http://ngspice.sourceforge.net/download.html . 
+- OpenLANE : OpenLane is an automated RTL to GDSII flow based on several components including OpenROAD, Yosys, Magic, Netgen, CVC, SPEF-Extractor, CU-GR, Klayout and a number of custom scripts for design exploration and optimization. The flow performs full ASIC implementation steps from RTL all the way down to GDSII. 
+OpenROAD app has the OpenSTA included among its various tools and modules. For installing OpenLANE a free course is provided by VSD and here is the [link](https://www.udemy.com/course/vsd-a-complete-guide-to-install-openlane-and-sky130nm-pdk/learn/lecture/21989810?start=0#overview) also you can visit this [repository](https://github.com/nickson-jose/openlane_build_script)
+- ngspice: An open source spice simulator for electronic circuits. For installation in Windows and Linux platform visit this [link](http://ngspice.sourceforge.net/download.html). 
  
 All the necessary files and libraries is included in the repository.
 
 ## Delay table of CMOS inverter
 
-CMOS inverter being the basic building block in designing its delay table for the even corners using skywater PDK is generated below. The details of the same can be obained in [CMOS-Circuit-Design-and-SPICE-Simulation-using-SKY130-Technology](https://github.com/Geetima2021/CMOS-Circuit-Design-and-SPICE-Simulation-using-SKY130-Technology) repository.
+CMOS inverter being the basic building block in designing its delay table for the even corners using skywater PDK is generated below. The details of the same can be obained in this [repository](https://github.com/Geetima2021/CMOS-Circuit-Design-and-SPICE-Simulation-using-SKY130-Technology).
 
 Table1: Delay table using sky130 tt corner
 
