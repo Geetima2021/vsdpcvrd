@@ -55,7 +55,7 @@ All the necessary files and libraries is included in the repository.
 
 ## Delay table of CMOS inverter
 
-CMOS inverter being the basic building block in designing its delay table for the even corners using skywater PDK is generated below. The details of the same can be obained in this [repository](https://github.com/Geetima2021/CMOS-Circuit-Design-and-SPICE-Simulation-using-SKY130-Technology).
+CMOS inverter being the basic building block in designing its delay table for the even corners using skywater PDK is generated below. As per the delay value, the ss(worse) corner have highest delay and ff(best) corner has the least delay for the same inverter. The details of the same can be obained in this [repository](https://github.com/Geetima2021/CMOS-Circuit-Design-and-SPICE-Simulation-using-SKY130-Technology).
 
 Table1: Delay table using sky130 tt corner
 
@@ -92,9 +92,17 @@ Table3: Delay table using sky130 ss corner
 
 ## Analysis of a basic design
 
-Based on the design specification the given figure is analysed. The first step is to write a verilog program for the design and it is located [here](https://github.com/Geetima2021/vsdpcvrd/tree/main/resources/files). This  verilog file is linked with the skywater timing library for analysis.
+Based on the design specification the given figure is analysed. The first step is to write a verilog program for the design and it is located [here](https://github.com/Geetima2021/vsdpcvrd/tree/main/resources/files). This verilog file is linked with the skywater timing library for analysis. 
 
 ![main_fig](https://user-images.githubusercontent.com/63381455/155880106-37238762-9551-4e05-9270-50b4c80167fa.JPG)
+
+Prior to STA the systhesized netlist is generated using the yosys sythesis tool and the script for same is included in the snapshot below.
+
+![SD](https://user-images.githubusercontent.com/63381455/167897478-8c38d441-2cf4-44a4-98c3-056c7a6fa76b.png)
+
+The STA is done using open source tool OpenSTA and the snapshot of the tcl file use for timing analysis for a single PVT corner along with the necessary commands is as shown below.
+
+![SD_conf](https://user-images.githubusercontent.com/63381455/167900953-ca71c7ff-b14b-4b00-a919-1337a39b5eff.png)
 
 The analysis of the above design is done using a 15 different PVT corners and the trend on the cell delay and the input slew is observed. 
 
