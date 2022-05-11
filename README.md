@@ -102,7 +102,7 @@ Prior to STA the systhesized netlist is generated using the yosys sythesis tool 
 
 The STA is done using open source tool OpenSTA and the snapshot of the tcl file use for timing analysis for a single PVT corner along with the necessary commands is as shown below.
 
-![SD_conf](https://user-images.githubusercontent.com/63381455/167900953-ca71c7ff-b14b-4b00-a919-1337a39b5eff.png)
+![SD_conf](https://user-images.githubusercontent.com/63381455/167903969-c8dd9cc9-757e-4868-8c26-5c6f8caf5f04.png)
 
 The analysis of the above design is done using a 15 different PVT corners and the trend on the cell delay and the input slew is observed. 
 
