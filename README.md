@@ -136,7 +136,10 @@ The variation of the cell delay and input slew with respect to the PVT corner on
 
 ## STA analysis of RISCV core
 
-The verilog file for STA analysis of RISCV core is taken from this [repository](https://github.com/shivanishah269/risc-v-core/tree/master/FPGA_Implementation/verilog). OpenLANE is used for further analysis and the slack (setup and hold) is observed at different stages - post synthesis, post CTS and post layout. The analysis is based on the tt corner netlist across all the timing libraries. Based on the observe results a report is generated as shown in the tables and graph below. As seen from the results it is observe that the setup slacks are worse across the ss, -40c corners and the hold slack has the worse values across the ff corner. The tt corner 25C gives +3.68ns setup slack for clock of 10ns (158MHz) after clock tree propagated -post layout. It is observe that  the worse and the best corner is ssn40C1v28 and ff100C1v95 corner which is the main aim of the study.
+The verilog file for STA analysis of RISCV core is taken from this [repository](https://github.com/shivanishah269/risc-v-core/tree/master/FPGA_Implementation/verilog). OpenLANE is used for further analysis and the slack (setup and hold) is observed at different stages - post synthesis, post CTS and post layout. The analysis is based on the tt corner netlist across all the timing libraries. Based on the observe results a report is generated as shown in the tables and graph below. As seen from the results it is observe that the setup slacks are worse across the ss, -40c corners and the hold slack has the worse values across the ff corner. The tt corner 25C gives +3.68ns setup slack for clock of 10ns (158MHz) after clock tree propagated -post layout. It is observe that  the worse and the best corner is ssn40C1v28 and ff100C1v95 corner which is the main aim of the study. The snapshot of the flow diagram of the entire process is as shown below.
+
+![flow_diag](https://user-images.githubusercontent.com/63381455/168047327-4a523a98-f580-4f1f-ba10-c71ff7a9ee2f.PNG)
+
 
 
 Static timing analysis – Post sythesis pre CTS 
