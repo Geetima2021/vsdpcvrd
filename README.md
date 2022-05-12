@@ -155,7 +155,7 @@ The clock network propagated is a balanced H tree and the snapshot of H-Tree bas
 
 ![clk_net](https://user-images.githubusercontent.com/63381455/168092135-f5f4562c-3256-4489-ba58-b3371d740c2d.PNG)
 
-### STA at differnt stages of PnR flow
+### STA at different stages of PnR flow
 
 The setup slack and hold slack along with the start and end point of the different PVT corners are tabulated for the different stages of the OpenLANE flow. At each stage - post synthesis pre CTS, post CTS and Post CTS post layout graph is generated between hold slack/setup slack and PVT corners. From the table and generated graph the best and the worse corner of skywater130 timimg library is observed. In our study same PVT corner is considered for min and max delay calculation.   
 
