@@ -92,7 +92,10 @@ Table3: Delay table using sky130 ss corner
 
 ## Analysis of a basic design
 
-Based on the design specification the given figure is analysed. The first step is to write a verilog program for the design and it is located [here](https://github.com/Geetima2021/vsdpcvrd/tree/main/resources/files). This verilog file is linked with the skywater timing library for analysis. 
+Based on the design specification the given figure is analysed. The first step is to write a verilog program for the design and it is located [here](https://github.com/Geetima2021/vsdpcvrd/tree/main/resources/files). This verilog file is linked with the skywater timing library for analysis. The timing libraries use in the analysis is available [here](https://github.com/Geetima2021/vsdpcvrd/tree/main/resources/timing_libs).
+
+Note: The location of timimg library inside OpenLANE is ``${PDK_ROOT/sky130A/libs.ref/sky130_fd_sc_hd/lib/``.
+
 
 ![main_fig](https://user-images.githubusercontent.com/63381455/155880106-37238762-9551-4e05-9270-50b4c80167fa.JPG)
 
@@ -134,13 +137,27 @@ STA analysis of different PVT corners is performed and the report generated for 
 
 The variation of the cell delay and input slew with respect to the PVT corner on NAND gate is plotted in the above graph. It shows that the input slew and the cell delay for the NAND gate follows similar trend. Both increases as we move from best case to the worst case scenario which should be the trend. The analysis holds true both for worst setup and hold NAND report as observe in the above graph.
 
-## STA analysis of RISCV core
+## Static timimg analysis of RISCV core
 
 The verilog file for STA analysis of RISCV core is taken from this [repository](https://github.com/shivanishah269/risc-v-core/tree/master/FPGA_Implementation/verilog). OpenLANE is used for further analysis and the slack (setup and hold) is observed at different stages - post synthesis, post CTS and post layout. The analysis is based on the tt corner netlist across all the timing libraries. Based on the observe results a report is generated as shown in the tables and graph below. As seen from the results it is observe that the setup slacks are worse across the ss, -40c corners and the hold slack has the worse values across the ff corner. The tt corner 25C gives +3.68ns setup slack for clock of 10ns (158MHz) after clock tree propagated -post layout. It is observe that  the worse and the best corner is ssn40C1v28 and ff100C1v95 corner which is the main aim of the study. The snapshot of the flow diagram of the entire process is as shown below.
 
 ![flow_diag](https://user-images.githubusercontent.com/63381455/168047327-4a523a98-f580-4f1f-ba10-c71ff7a9ee2f.PNG)
 
+Understanding the generated timing report is important for the analysis of a given design. Below is the example snapshot of the pre and post CTS timing report. Both the reports are ideally the same except that post CTS the clock network is propagated otherwise its ideal.
 
+![post_syn](https://user-images.githubusercontent.com/63381455/168085768-2ae0aabe-c771-4718-9ccf-30e7cf7fe959.PNG)
+
+![post_cts](https://user-images.githubusercontent.com/63381455/168085286-f186aec0-ac3b-4a24-8e27-43fe7234c74a.PNG)
+
+The clock network propagated is a balanced H tree and the snapshot of H-Tree based figure for a single PVT corner showing the launch and the capture flop path of the worse seup and hold is included below. The textual format generated in the report of a setup launch and capture flop is also included. To view the clock network an additional switch ``-format full_clock_expanded `` is added to the ``report_checks`` command.
+
+![Htree](https://user-images.githubusercontent.com/63381455/168088543-1be4ce30-8160-4200-9647-77a94f4004ec.PNG)
+
+![clk_net](https://user-images.githubusercontent.com/63381455/168092135-f5f4562c-3256-4489-ba58-b3371d740c2d.PNG)
+
+### STA at differnt stages of PnR flow
+
+The setup slack and hold slack along with the start and end point of the different PVT corners are tabulated for the different stages of the OpenLANE flow. At each stage - post synthesis pre CTS, post CTS and Post CTS post layout graph is generated between hold slack/setup slack and PVT corners. From the table and generated graph the best and the worse corner of skywater130 timimg library is observed. In our study same PVT corner is considered for min and max delay calculation.   
 
 Static timing analysis – Post sythesis pre CTS 
 
@@ -209,16 +226,14 @@ Static timing analysis –Post CTS post layout
 
 ![post_lay](https://user-images.githubusercontent.com/63381455/166108554-3ba8b388-e805-435d-9f62-888ba1de35ca.JPG)
 
-#### On-chip variation based static timing analysis
+### On-chip variation based static timing analysis
 
-On-chip variation (OCV) is an un-avoidable issue which occurs during the fabrication process. On chip variation results in OCV derates %tage [best and worse range] which has to be taken into account during the static timing analysis. It gives a more realistic and conservative analysis. Four possible combinations is possible for data required time (DRT) and data arrival time (DAT) calculation in the clock network where the delays are either increase or reduce with certain OCV derates %tage [increase DAT/DRT: increase DAT, reduce DRT: reduce DAT, increase DRT:reduce DAT/DRT].
+On-chip variation (OCV) is an un-avoidable issue which occurs during the fabrication process. It gives a more realistic and conservative analysis of a design. The variation percentage is termed as OCV derates. In standard industrial process different process corners are used for min and max delay calculation which accounts for ocv in a design. Clock network is mostly preferred for ocv and the tools automatically includes the network as per the PVT corners considered for min and max delay calculation.  Four possible combinations is possible for data required time (DRT) and data arrival time (DAT) calculation in the clock network where the delays are either increase or reduce with certain OCV derates %tage [increase DAT/DRT: increase DAT, reduce DRT: reduce DAT, increase DRT:reduce DAT/DRT]. OCV results in pessimism and its removal is essential for slack calculation.
 
 There are terms associated with the increase and reduce derates. 
 
-- When the DRT/DAT in the clock path (delays) is reduced by the OCV derate %tage it is called as clock pull in.
-- When the DAT/DRT in the clock path (delays) is increased by the OCV derate %tage it is called as clock push out 
-
-In most of the industrial designs the derating in the clock network is preferable.
+- When the DRT/DAT in the clock path (delays) is reduced by the OCV variation it is called as clock pull in.
+- When the DAT/DRT in the clock path (delays) is increased by the OCV variation it is called as clock push out 
 
 Considering the clock network, the figure below shows the commom clock section for the ocv setup and hold analysis (post layout). In case of ocv setup timing analysis the max delay is use in the data path and min delay is use in the clock path and vice versa in case of hold timing analysis. From the common clock section as shown in figure below and it is observe that the delay value of the of the cell is different which results in pessimism as no two cells can have different delay at the same time instance. This pessimism is termed as additional pessismism or clock reconvergence pessimism or clock path pessimism and removal of the pessimism is essential. For removal of the pessimism we can either add/remove the extra pessimism from DAT or DRT part and then compute the required slack. This method of pessimism removal is known as additional pessismism removal orclock reconvergence pessimism removal or clock path pessimism removal (CPPR).
 
@@ -238,24 +253,32 @@ In OpenSTA timing there are few variables use for pessimism removal
 
 ## Conclusion
 
-- We have prepared a delay table of an inverter for ss, ff and tt corner using sky130 technology and define the correct model file for a 10fF capacitor. 
-- STA Analysis of a simple design using Yosys synthesis and openSTA tool across different PVT corners. Analysis of the cell delay and input slew of NAND gate, obtained from setup and hold slack showed the trend of the PVT corners
-- rtl2gds flow of a RISCV core using openlane and skywater130 tt corner followed by STA analysis of the core in different stages of the flow using the 15 PVT corners and based on the setup and hold slack the worst and the best corner is defined and verified as the same obtained from the previous design
-- For our STA analysis we had use same min, max library and based on the post layout result a slack of +3.68ns(154MHz) is obtained at tt025C1v80 corner for a clock of 10ns. Worse setup slack across ssn401v28 corner is -47.93ns and the best corner is ff100C1v95 with a setup slack of 6.29ns and hold slack is worse across the ff corner and best at ss corner with the tt corner hold slack is 0.17ns
-- As far as industrial standards is concern, consideration of ocv in the STA analysis is essential and hence to account for the same max and min delay is based on different process corner viz ff and ss in our case
-- Based on the ff100C1v95 and ss100C1v60 for STA analysis we note the slack(hold and setup) is positive after consideration of OCV in the timing report
+- A delay table of an inverter for ss, ff and tt corner using sky130 technology is generated based on ngspice simulation result. 
+- STA of a simple design using Yosys synthesis and openSTA tool across different PVT corners. Analysis of the cell delay and input slew of NAND gate, obtained from setup and hold slack showed the trend of the PVT corners
+- STA of RISCV core using openLANE and OpenSTA using 15 PVT corners available in sky130 PDK 
+- Same min and max library is used for STA and as per the observe results the ssn40C1v28 is the worse and ff100C1v95 is the best corner in sky130 PDK
+- Post layout result gives a setup slack of +3.68ns(154MHz) for tt025C1v80 corner for a clock of 10ns. Worse setup slack across ssn401v28 corner is -47.93ns and ff100C1v95 shows a setup slack of 6.29ns. Hold slack is worse across the ff corner and best at ss corner with the tt corner giving a hold slack is 0.17ns 
+- The analysis is based on the setup and hold reg2reg analysis
+- Analysis using different PVT corner and observation of the clock network delay defines the crpr of the design
 
 ## Future work
 
-- Fixing timing violations 
-- ECO
-- Performance characterization of VSDbabySOC 
+- Inclusion of more constraits 
+- STA using all the other checks
+- STA using different PVT corners for max and min delay calculation
+- Study about timing violations and ECO
+- Performance characterisation of VSDBabySOC
+
+## Reference
+
+- [Shivani Shah, risc-v-core](https://github.com/shivanishah269)
+- [Geetima Kachari, Circuit-Design-and-SPICE-Simulation-using-SKY130-Technology](https://github.com/Geetima2021/CMOS-Circuit-Design-and-SPICE-Simulation-using-SKY130-Technology)
+
 
 ## Acknowledgement
 
 - [Kunal Ghosh](https://github.com/kunalg123), Co-founder, VSD Corp. Pvt. Ltd.
 - [Tim Edwards](https://github.com/RTimothyEdwards),Senior Vice President of Analog and Design, Efabless Corporation
-- [Shivani Shah,risc-v-core](https://github.com/shivanishah269).
 - [Anagha Ghosh](https://www.linkedin.com/in/anagha-ghosh-vlsisystemdesign-com-a4394936), Founder, VSD Corp. Pvt. Ltd.
 
 
