@@ -272,6 +272,7 @@ In OpenSTA timing there are few variables use for pessimism removal
 ## Reference
 
 - [Shivani Shah, risc-v-core](https://github.com/shivanishah269)
+- [Grant Brown, OpenLANE Workshop](https://gitlab.com/gab13c/openlane-workshop)
 - [Geetima Kachari, Circuit-Design-and-SPICE-Simulation-using-SKY130-Technology](https://github.com/Geetima2021/CMOS-Circuit-Design-and-SPICE-Simulation-using-SKY130-Technology)
 
 
@@ -279,6 +280,7 @@ In OpenSTA timing there are few variables use for pessimism removal
 
 - [Kunal Ghosh](https://github.com/kunalg123), Co-founder, VSD Corp. Pvt. Ltd.
 - [Tim Edwards](https://github.com/RTimothyEdwards),Senior Vice President of Analog and Design, Efabless Corporation
+- [Shivani Shah](https://github.com/shivanishah269),TA VSD Corp. Pvt. Ltd.
 - [Anagha Ghosh](https://www.linkedin.com/in/anagha-ghosh-vlsisystemdesign-com-a4394936), Founder, VSD Corp. Pvt. Ltd.
 
 
