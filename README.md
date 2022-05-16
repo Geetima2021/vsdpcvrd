@@ -144,6 +144,8 @@ The verilog file for STA analysis of RISCV core is taken from this [repository](
 ![flow_diag](https://user-images.githubusercontent.com/63381455/168047327-4a523a98-f580-4f1f-ba10-c71ff7a9ee2f.PNG)
 
 The OpenSTA analysis part is as shown in figure below.
+
+
 ![STA_flow](https://user-images.githubusercontent.com/63381455/168652915-c63946a2-e07d-4ace-86b3-2eb755c487ee.PNG)
 
 
