@@ -143,6 +143,10 @@ The verilog file for STA analysis of RISCV core is taken from this [repository](
 
 ![flow_diag](https://user-images.githubusercontent.com/63381455/168047327-4a523a98-f580-4f1f-ba10-c71ff7a9ee2f.PNG)
 
+The OpenSTA analysis part is as shown in figure below.
+![STA_flow](https://user-images.githubusercontent.com/63381455/168652915-c63946a2-e07d-4ace-86b3-2eb755c487ee.PNG)
+
+
 Understanding the generated timing report is important for the analysis of a given design. Below is the example snapshot of the pre and post CTS timing report. Both the reports are ideally the same except that post CTS the clock network is propagated otherwise its ideal.
 
 ![post_syn](https://user-images.githubusercontent.com/63381455/168085768-2ae0aabe-c771-4718-9ccf-30e7cf7fe959.PNG)
@@ -203,7 +207,7 @@ Static timing analysis - Post CTS
 
 ![post_cts](https://user-images.githubusercontent.com/63381455/166108663-8f6f496d-3f37-41f1-a3a9-4202ec86c9b8.JPG)
 
-Static timing analysis –Post CTS post layout
+Static timing analysis –Post CTS post layout   
 
 
 | **Sl No.** | **Start/end point(setup)** | **Start/end point(hold)** | **PVT corners** | **Setup slack ** | **Hold slack** |
@@ -256,7 +260,7 @@ In OpenSTA timing there are few variables use for pessimism removal
 - A delay table of an inverter for ss, ff and tt corner using sky130 technology is generated based on ngspice simulation result. 
 - STA of a simple design using Yosys synthesis and openSTA tool across different PVT corners. Analysis of the cell delay and input slew of NAND gate, obtained from setup and hold slack showed the trend of the PVT corners
 - STA of RISCV core using openLANE and OpenSTA using 15 PVT corners available in sky130 PDK 
-- Same min and max library is used for STA and as per the observe results the ssn40C1v28 is the worse and ff100C1v95 is the best corner in sky130 PDK
+- Same min and max library is used for STA and as per the observe results the ssn40C1v28(slow process, is the worse and ff100C1v95 is the best corner in sky130 PDK
 - Post layout result gives a setup slack of +3.68ns(154MHz) for tt025C1v80 corner for a clock of 10ns. Worse setup slack across ssn401v28 corner is -47.93ns and ff100C1v95 shows a setup slack of 6.29ns. Hold slack is worse across the ff corner and best at ss corner with the tt corner giving a hold slack is 0.17ns 
 - The analysis is based on the setup and hold reg2reg analysis
 - Analysis using different PVT corner and observation of the clock network delay defines the crpr of the design
