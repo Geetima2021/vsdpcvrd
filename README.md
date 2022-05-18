@@ -271,7 +271,7 @@ In OpenSTA timing there are few variables use for pessimism removal
 
 - Inclusion of more constraits 
 - STA for all the other checks
-- STA using different PVT corners for max and min delay calculation
+- Multi mode multi corner analysis
 - Study about timing violations and ECO
 - Performance characterisation of VSDBabySOC
 
