@@ -269,9 +269,9 @@ In OpenSTA timing there are few variables use for pessimism removal
 
 ## Future work
 
-- Inclusion of more constraits 
 - STA for all the other checks
 - Multi mode multi corner analysis
+- Optimizing the input tcl file for OpenSTA
 - Study about timing violations and ECO
 - Performance characterisation of VSDBabySOC
 
