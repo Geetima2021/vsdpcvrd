@@ -25,7 +25,6 @@ read_verilog rvmyth.synthesis_preroute.v
 link_design rvmyth
 
 #read_spef rvmyth.spef
-#read_sdc rvmyth1.sdc
 read_sdc -echo rvmyth.sdc
 
 
