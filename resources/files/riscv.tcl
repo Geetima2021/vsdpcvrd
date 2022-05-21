@@ -18,10 +18,10 @@
 #read_liberty timing_libs/sky130_fd_sc_hd__ss_n40C_1v60.lib
 #read_liberty timing_libs/sky130_fd_sc_hd__ss_n40C_1v76.lib
 
-#read_verilog rvmyth.synthesis.v
+read_verilog rvmyth.synthesis.v
 #read_verilog rvmyth.synthesis_optimized.v
 #read_verilog rvmyth.synthesis_cts.v
-read_verilog rvmyth.synthesis_preroute.v
+#read_verilog rvmyth.synthesis_preroute.v
 link_design rvmyth
 
 #read_spef rvmyth.spef
