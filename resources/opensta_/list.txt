@@ -1,0 +1,1 @@
+Contains the necessary file use in RISCV sta analysis using yosys and openSTA
