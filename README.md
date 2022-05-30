@@ -150,8 +150,8 @@ The flow diagram of the process is shown in figure below. We started with the op
 
 All the netlist are available along this path inside openlane_working_dir``${OPENLANE_ROOT}/designs/rvmyth/tt025C1v80/results/synthesis/``. 
 The openLANE sta results is available in the following path of the openlane_working_dir``${OPENLANE_ROOT}/designs/rvmyth/tt025C1v80/reports/synthesis/``.
-
-For more infomation on the OpenLANE flow process visit this [repository](https://gitlab.com/gab13c/openlane-workshop). For A quick look on the openLANE interactive visit [here](https://github.com/The-OpenROAD-Project/OpenLane/blob/master/docs/source/advanced_readme.md) 
+ 
+For more infomation on the OpenLANE flow process visit this [repository](https://gitlab.com/gab13c/openlane-workshop). For information on the step by step procedure of the openLANE interactive flow visit this [page](https://github.com/The-OpenROAD-Project/OpenLane/blob/master/docs/source/advanced_readme.md) in openlane repository. 
 
 Note: OpenLANE does sta analysis for a set of min max libraries. 
 
