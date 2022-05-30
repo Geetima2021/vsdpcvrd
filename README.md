@@ -28,7 +28,6 @@ Types of hold/setup analysis
  - latch (time borrow/time given)
  ![setup_hold](https://user-images.githubusercontent.com/63381455/167811344-83b0a620-d0b3-404c-9940-61f985c8270c.PNG)
 
-
 Slew transistion analysis
  - Data(max/min)
  - Clock(max/min)
@@ -92,7 +91,7 @@ Table3: Delay table using sky130 ss corner
 
 ## Analysis of a basic design
 
-Based on the design specification the given figure is analysed. The first step is to write a verilog program for the design and it is located [here](https://github.com/Geetima2021/vsdpcvrd/tree/main/resources/files). This verilog file is linked with the skywater timing library for analysis. The timing libraries use in the analysis is available [here](https://github.com/Geetima2021/vsdpcvrd/tree/main/resources/timing_libs).
+Based on the design specification the given figure is analysed. The first step is to write a verilog program for the design and it is located [here](https://github.com/Geetima2021/vsdpcvrd/tree/main/resources/files). This verilog file is linked with the skywater timing library for analysis. The timing libraries use in the analysis is available [here](https://github.com/Geetima2021/vsdpcvrd/tree/main/resources/timing_libs). In this case after generation of yosys synthesis netlist the openSTA tool is used for STA analysis.
 
 Note: The location of timimg library inside OpenLANE is ``${PDK_ROOT/sky130A/libs.ref/sky130_fd_sc_hd/lib/``.
 
@@ -137,13 +136,29 @@ STA analysis of different PVT corners is performed and the report generated for 
 
 The variation of the cell delay and input slew with respect to the PVT corner on NAND gate is plotted in the above graph. It shows that the input slew and the cell delay for the NAND gate follows similar trend. Both increases as we move from best case to the worst case scenario which should be the trend. The analysis holds true both for worst setup and hold NAND report as observe in the above graph.
 
-## Static timimg analysis of RISCV core
+## Performance characterization of RISCV core using sky130 and openSTA
 
-The verilog file for STA analysis of RISCV core is taken from this [repository](https://github.com/shivanishah269/risc-v-core/tree/master/FPGA_Implementation/verilog). OpenLANE is used for further analysis and the slack (setup and hold) is observed at different stages - post synthesis, post CTS and post layout. The analysis is based on the tt corner netlist across all the timing libraries. Based on the observe results a report is generated as shown in the tables and graph below. As seen from the results it is observe that the setup slacks are worse across the ss, -40c corners and the hold slack has the worse values across the ff corner. The tt corner 25C gives +3.68ns setup slack for clock of 10ns (158MHz) after clock tree propagated -post layout. It is observe that  the worse and the best corner is ssn40C1v28 and ff100C1v95 corner which is the main aim of the study. The snapshot of the flow diagram of the entire process is as shown below.
+Here we started off by generation of synthesized netlist using the standard script of yosys tool. The verilog file for STA analysis of RISCV core is taken from this [repository](https://github.com/shivanishah269/risc-v-core/tree/master/FPGA_Implementation/verilog).The obtained netlist is used for timing analysis and based on the result we observe that the generated output report has huge fanout which results in high negative slack. The snapshot below shows the worst set up and hold slack with respect to different PVT corners.
+
+![res_10ns](https://user-images.githubusercontent.com/63381455/170959322-b3c3cedd-1df8-4567-99d3-e905f9bdc393.png)
+
+As seen from the above table the basis rvmyth netlist result in negative slack as it does not do high fanout synthesis and hence next OpenLANE is used for further analysis and the slack (setup and hold) is observed. OpenLANE flow provides an added advantage of sta analysis at different stages of the PnR flow - post synthesis, post CTS and post layout as the netlist are generated and available for analysis. The analysis is based on the tt corner synthesis netlist across all the timing libraries. Also the extracted the gate delays are mapped with the sky130 libraries and the values are mapped as shown in table below. The below shows the ssn40C1v35 mapping of the generated setup slack during the synthesis stage. We observe the values of the input slew and capacitance to verify the obtained gate delays. Based on the observation we see that the delays are approximately equal and the capacitance and input slew in the libraries are considered for range of values.
+
+![lib_mapping](https://user-images.githubusercontent.com/63381455/170966980-13a799bb-7f36-47d5-adfa-930f123910fa.png)
+
+The flow diagram of the process is shown in figure below. We started with the openLANE flow and after completion of the physical design flow the generated netlist across different stages is used for our analysis. In our case we use the same min and max library for sta analysis outside openLANE flow. 
+
+All the netlist are available along this path inside openLANE_working_dir``${OPENLANE_ROOT}/designs/rvmyth/tt025C1v80/results/synthesis/``. 
+The openLANE sta results is available in the following path of the openLANE_working_dir``${OPENLANE_ROOT}/designs/rvmyth/tt025C1v80/reports/synthesis/``.
+
+For more infomation on the OpenLANE flow process visit this [repository](https://gitlab.com/gab13c/openlane-workshop). A quick look on the openLANE interactive flow is available [here](https://github.com/The-OpenROAD-Project/OpenLane/blob/master/docs/source/advanced_readme.md) 
+
+Note: OpenLANE does sta analysis for a set of min max libraries. 
+
 
 ![flow_diag](https://user-images.githubusercontent.com/63381455/168047327-4a523a98-f580-4f1f-ba10-c71ff7a9ee2f.PNG)
 
-The OpenSTA analysis part is as shown in figure below.
+The figure belows shows the standalone OpenSTA flow.
 
 
 ![STA_flow](https://user-images.githubusercontent.com/63381455/168652915-c63946a2-e07d-4ace-86b3-2eb755c487ee.PNG)
