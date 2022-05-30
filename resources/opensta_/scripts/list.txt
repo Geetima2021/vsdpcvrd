@@ -1,0 +1,2 @@
+Verilog files and other dependent files
+yosys and sta input tcl file
