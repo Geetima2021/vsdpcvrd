@@ -148,8 +148,8 @@ As seen from the above table the basis rvmyth netlist result in negative slack a
 
 The flow diagram of the process is shown in figure below. We started with the openLANE flow and after completion of the physical design flow the generated netlist across different stages is used for our analysis. In our case we use the same min and max library for sta analysis outside openLANE flow. 
 
-All the netlist are available along this path inside openLANE_working_dir``${OPENLANE_ROOT}/designs/rvmyth/tt025C1v80/results/synthesis/``. 
-The openLANE sta results is available in the following path of the openLANE_working_dir``${OPENLANE_ROOT}/designs/rvmyth/tt025C1v80/reports/synthesis/``.
+All the netlist are available along this path inside openlane_working_dir``${OPENLANE_ROOT}/designs/rvmyth/tt025C1v80/results/synthesis/``. 
+The openLANE sta results is available in the following path of the openlane_working_dir``${OPENLANE_ROOT}/designs/rvmyth/tt025C1v80/reports/synthesis/``.
 
 For more infomation on the OpenLANE flow process visit this [repository](https://gitlab.com/gab13c/openlane-workshop). For A quick look on the openLANE interactive visit [here](https://github.com/The-OpenROAD-Project/OpenLane/blob/master/docs/source/advanced_readme.md) 
 
