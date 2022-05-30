@@ -1,0 +1,1 @@
+All files related to RISCV openLANE run followed by OpenSTA analysis. The input verilog files for OpenLANE run initiation are included in the `opensta_` folder inside the `verilog` folder. The verilog files inside this folder are the output verilog netlist as obtained from openLANE flow use for further timing analysis using openSTA.
