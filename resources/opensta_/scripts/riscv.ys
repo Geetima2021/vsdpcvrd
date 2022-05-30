@@ -1,0 +1,23 @@
+# Synthesis script for yosys created by qflow
+
+read_liberty -lib ../../../timing_libs/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog ../verilog/mythcore_test.v
+read_verilog ../verilog/clk_gate.v
+
+synth -top core
+
+# Map register flops
+dfflibmap -liberty ../../../timing_libs/sky130_fd_sc_hd__tt_025C_1v80.lib
+opt
+
+# Map combinatinal cells, standard script
+abc -exe /usr/local/share/qflow/bin/yosys-abc -liberty ../../../timing_libs/sky130_fd_sc_hd__tt_025C_1v80.lib -script +strash;scorr;ifraig;retime,{D};strash;dch,-f;map,-M,1,{D}
+flatten
+setundef -zero
+clean -purge
+rename -enumerate
+stat
+write_verilog -noattr ../output/sky130_fd_sc_hd__tt_025C_1v80.synth.v
+
+
+
